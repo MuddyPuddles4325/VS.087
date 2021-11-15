@@ -1,2 +1,2 @@
-# VoronSW_Config
-Repo for my klipper configs for my Voron SW
+# VS.087_Config
+Voron Switchwire VS.087 Klipper Configs
