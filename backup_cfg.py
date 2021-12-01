@@ -40,6 +40,7 @@ for file in backupList:
         print("Copied file to " + gitBackupPath + file)
 
 #change directory to git repo path and commit changes
+#manually run git config --global credential.helper store to avoid log in requirements
 os.chdir(gitRepoPath)
 subprocess.call(["git", "add","*"])
 subprocess.call(["git", "commit", "-m", "Scripted Backup"])
