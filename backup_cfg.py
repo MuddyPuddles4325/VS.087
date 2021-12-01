@@ -7,7 +7,9 @@ import subprocess
 os.chdir('/home/pi/klipper_cfg_backup/')
 
 klipperCfgPath = '/home/pi/klipper_config/'
-gitBackupPath = '/home/pi/klipper_cfg_backup/VS.087/klipper_config/'
+gitRepoPath = '/home/pi/klipper_cfg_backup/VS.087/'
+gitBackupPath = gitRepoPath + 'klipper_config/'
+
 
 ## Get list of files to back up ##
 cfgFolderList = os.listdir(klipperCfgPath)
@@ -37,8 +39,8 @@ for file in backupList:
         copyfile(Path(klipperCfgPath + file), Path(gitBackupPath + file))
         print("Copied file to " + gitBackupPath + file)
 
-os.chdir('/home/pi/klipper_cfg_backup/VS.087')
-
+#change directory to git repo path and commit changes
+os.chdir(gitRepoPath)
 subprocess.call(["git", "add","*"])
 subprocess.call(["git", "commit", "-m", "Scripted Backup"])
 subprocess.call(["git", "push"])
