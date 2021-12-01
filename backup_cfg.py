@@ -3,6 +3,7 @@ from pathlib import Path
 import os
 from shutil import copyfile
 import json
+import subprocess
 os.chdir('/home/pi/klipper_cfg_backup/')
 
 klipperCfgPath = '/home/pi/klipper_config/'
@@ -35,3 +36,9 @@ for file in backupList:
     else:
         copyfile(Path(klipperCfgPath + file), Path(gitBackupPath + file))
         print("Copied file to " + gitBackupPath + file)
+
+os.chdir('/home/pi/klipper_cfg_backup/VS.087')
+
+subprocess.call(["git", "add","*"])
+subprocess.call(["git", "commit", "-m", "Scripted Backup"])
+subprocess.call(["git", "push"])
