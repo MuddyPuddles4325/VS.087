@@ -73,7 +73,7 @@ def copyLatestFiles():
             print("File Skipped: " + file)
         else:
             copyfile(Path(klipperCfgPath + file), Path(gitBackupPath + file))
-            print("Copied file to " + gitBackupPath + file)
+            #print("Copied file to " + gitBackupPath + file)
 
 #change directory to git repo path and commit changes
 #manually run git config --global credential.helper store to avoid log in requirements
